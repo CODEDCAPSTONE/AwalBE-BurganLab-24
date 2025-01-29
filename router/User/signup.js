@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const { body } = require("express-validator");
 
 const User = require("../../models/User");
-const Parent = require("../../models/Parent");
+const Parent = require("../../models/parent");
 
 const validateRequest = require("../../middleware/validateRequest");
 const { BadRequestError } = require("../../errors");
@@ -17,7 +17,7 @@ const validators = [
     .isLength({ min: 4, max: 20 })
     .withMessage("Password must be between 4 and 20 characters"),
   body("Pname").not().isEmpty().withMessage("Parent name is required"),
-  body("email").isEmail().withMessage("Email must be valid")
+  body("email").isEmail().withMessage("Email must be valid"),
 ];
 
 router.post("/signup", validators, validateRequest, async (req, res, next) => {
@@ -36,7 +36,7 @@ router.post("/signup", validators, validateRequest, async (req, res, next) => {
     Pname,
     email,
     user: user._id,
-    role: 'parent'
+    role: "parent",
   });
   await parent.save();
 
@@ -46,7 +46,7 @@ router.post("/signup", validators, validateRequest, async (req, res, next) => {
 
   // Generate a token
   const token = jwt.sign(
-    { id: user.id, username: user.username, role: 'parent' },
+    { id: user.id, username: user.username, role: "parent" },
     process.env.JWT_SECRET,
     { expiresIn: process.env.JWT_EXPIRATION }
   );
