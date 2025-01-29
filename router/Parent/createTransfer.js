@@ -1,7 +1,7 @@
 const express = require('express');
 const { body } = require('express-validator');
 const { validateRequest } = require('../../middleware');
-const Parent = require('../../models/Parent');
+const Parent = require('../../models/parent');
 const Kid = require('../../models/kid');
 const Transfer = require('../../models/transfer');
 

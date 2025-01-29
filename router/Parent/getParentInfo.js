@@ -1,6 +1,6 @@
 const express = require('express');
 const { validateRequest } = require('../../middleware');
-const Parent = require('../../models/Parent');
+const Parent = require('../../models/parent');
 
 const router = express.Router();
 

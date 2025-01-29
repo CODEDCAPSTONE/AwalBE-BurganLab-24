@@ -3,7 +3,7 @@ const { body } = require('express-validator');
 const { validateRequest } = require('../../middleware');
 const TaskCompletionRequest = require('../../models/taskCompletionRequest');
 const Task = require('../../models/task');
-const Parent = require('../../models/Parent');
+const Parent = require('../../models/parent');
 const Kid = require('../../models/kid');
 
 const router = express.Router();
